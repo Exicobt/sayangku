@@ -26,12 +26,14 @@
     </div>
     <script>
 
-        const backsound = new Audio('backsound.mp3')
-        backsound.loop = true
-
-        backsound.play()
+        
 
         function time() {
+
+            const backsound = new Audio('backsound.mp3')
+        backsound.loop = true
+
+        backsound.play();
             const ContainerDate = document.querySelector(".get-date")
             const date = document.querySelector(".date")
             const time = document.querySelector(".time")
@@ -70,6 +72,8 @@
             setTimeout( time, 1000)
 
         }
+
+        
 
         time()
     </script>
