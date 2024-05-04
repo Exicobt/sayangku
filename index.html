@@ -28,9 +28,9 @@
 
         const backsound = new Audio('backsound.mp3')
         backsound.loop = true
-        backsound.volume = 0.5
 
         backsound.play()
+
         function time() {
             const ContainerDate = document.querySelector(".get-date")
             const date = document.querySelector(".date")
@@ -50,7 +50,7 @@
             date.innerHTML = `${getDay}, ${getDates}`
             time.innerHTML = `${getHour}:${getMinute} ${ampm}`
             
-            if(dateNow.getHours() <= 10) {
+            if(dateNow.getHours() >= 6 && dateNow.getHours() <= 10) {
                 kataSelamat.innerHTML = "Selamat pagi sayang!"
                 ucapan.innerHTML = "Setiap matahari terbit membawa kilau cinta baru, dan bersamamu, pagi menjadi lebih indah dari sebelumnya."
             }
