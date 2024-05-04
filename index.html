@@ -8,9 +8,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <audio src="backsound.mp3" id="backsound" loop></audio>
     <div class="container">
-        <div class="card">
+        <div id="welcome">
+            <h2>"Nabilah Azzahra"</h2>
+            <h1>Hai Sayangg</h1>
+            <button id="tombol">Lanjutkan</button>
+        </div>
+        <div id="card">
             <div class="circle1"></div>
             <div class="circle2"></div>
             <div class="get-date">
@@ -26,14 +31,19 @@
     </div>
     <script>
 
-        
+        function play() {
+            const tombol = document.getElementById('tombol').addEventListener('click', () => {
+                const cardOpen = document.getElementById('card').style.display = 'flex'
+                const welcome = document.getElementById('welcome').style.display = 'none'
+                time()
+            })
+        }
+
+        play()
 
         function time() {
-
-            const backsound = new Audio('backsound.mp3')
-        backsound.loop = true
-
-        backsound.play();
+            const backsound = document.getElementById('backsound')
+            backsound.play()
             const ContainerDate = document.querySelector(".get-date")
             const date = document.querySelector(".date")
             const time = document.querySelector(".time")
@@ -72,10 +82,6 @@
             setTimeout( time, 1000)
 
         }
-
-        
-
-        time()
     </script>
 </body>
 </html>

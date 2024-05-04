@@ -73,16 +73,52 @@ body {
     left: -30px;
 }
 
-.card {
+#welcome {
     position: relative;
-    background-color: #FFDF99;
-    border-radius: 20px;
     height: 600px;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: 1s;
+}
+
+#welcome h2{
+    color: white;
+    font-size: 20px;
+}
+
+#welcome h1{
+    color: white;
+}
+
+#welcome button{
+    background-color: transparent;
+    width: 200px;
+    height: 50px;
+    border: 2px solid white;
+    color: white;
+    border-radius: 20px;
+    transition: .5s;
+}
+
+#welcome button:hover {
+    cursor: pointer;
+    background-color: #3fc3a463;
+}
+
+#card {
+    position: relative;
+    background-color: #FFDF99;
+    border-radius: 20px;
+    height: 600px;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
 }
 
 .get-date {
