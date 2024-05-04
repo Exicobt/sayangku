@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="card">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="get-date">
+                <span class="date"></span>
+                <span class="time"></span>
+            </div>
+
+            <div class="kata-kata">
+                <h2 class="selamat"></h2>
+                <h2 class="ucapan"></h2>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        const backsound = new Audio('backsound.mp3')
+        backsound.loop = true
+        backsound.volume = 0.5
+
+        backsound.play()
+        function time() {
+            const ContainerDate = document.querySelector(".get-date")
+            const date = document.querySelector(".date")
+            const time = document.querySelector(".time")
+            const kataSelamat = document.querySelector(".selamat")
+            const ucapan = document.querySelector(".ucapan")
+            
+            const dateNow = new Date()
+
+            const getDay = dateNow.toLocaleDateString( 'id-ID', { weekday: 'long' })
+            const getDates = dateNow.toLocaleDateString( 'id-ID', { day: '2-digit', month: 'long', year: 'numeric' })
+            const getHour = dateNow.getHours().toString().length == 1 ? '0' + dateNow.getHours() : dateNow.getHours()
+            const getMinute = dateNow.getMinutes().toString().length == 1 ? '0' + dateNow.getMinutes() : dateNow.getMinutes()
+
+            const ampm = dateNow.getHours() >= 12 ? 'PM' : 'AM'
+         
+            date.innerHTML = `${getDay}, ${getDates}`
+            time.innerHTML = `${getHour}:${getMinute} ${ampm}`
+            
+            if(dateNow.getHours() <= 10) {
+                kataSelamat.innerHTML = "Selamat pagi sayang!"
+                ucapan.innerHTML = "Setiap matahari terbit membawa kilau cinta baru, dan bersamamu, pagi menjadi lebih indah dari sebelumnya."
+            }
+            else if(dateNow.getHours() >= 10 && dateNow.getHours() <= 15) {
+                kataSelamat.innerHTML = "Selamat siang sayang!"
+                ucapan.innerHTML = "Di bawah sinar mentari yang hangat, cinta kita mekar seperti bunga di tengah padang."
+            }
+            else if(dateNow.getHours() > 15 && dateNow.getHours() <= 18 && dateNow.getMinutes() <= 30) {
+                kataSelamat.innerHTML = "Selamat sore sayang!"
+                ucapan.innerHTML = "Di bawah langit senja yang memukau, aku merasa beruntung memiliki seseorang seperti kamu yang memancarkan kehangatan dan cinta di setiap detiknya."
+            }
+            else {
+                kataSelamat.innerHTML = "Selamat malam sayang!"
+                ucapan.innerHTML = "Di bawah gemerlap bintang, aku merenung tentang betapa beruntungnya aku memilikimu."
+            }
+
+            setTimeout( time, 1000)
+
+        }
+
+        time()
+    </script>
+</body>
+</html>
